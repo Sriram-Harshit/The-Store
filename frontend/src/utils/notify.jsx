@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import MessageModal from "../components/ui/messagemodel/messageModel";
+import MessageModal from "../Components/ui/messagemodel/messageModel";
 
 export const notify = (message, type = "info") => {
   const div = document.createElement("div");
