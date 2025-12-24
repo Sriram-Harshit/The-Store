@@ -20,7 +20,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Backend deployed on Vercel 🚀");
+  res.send("Backend running on Vercel 🚀");
 });
 app.use("/users", userRoutes);
 app.use("/product", produstsRoutes);
