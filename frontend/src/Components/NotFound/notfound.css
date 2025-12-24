@@ -1,0 +1,33 @@
+.not-found {
+  min-height: calc(100vh - var(--header-height, 64px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+.not-found p {
+  font-size: 1rem;
+  color: #581c87;
+}
+
+.notfound-img {
+  width: 240px;
+  max-width: 70%;
+  margin-bottom: 1.2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,225 @@
+/* ===== Page Wrapper ===== */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* ===== Card Base ===== */
+.cards {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cards:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== Section Headers ===== */
+.cards h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4c1d95;
+  margin-bottom: 1rem;
+}
+
+/* ===== Profile Header ===== */
+.profileedit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.profileeditbtn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+/* ===== Profile Text ===== */
+.profileDetails p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 0.45rem;
+}
+
+.profileDetails strong {
+  color: #1f2937;
+}
+
+/* ================= ADDRESS CARD ================= */
+
+.addressscard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Header (Title + Add button) */
+.addressadd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addressadd h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.addressaddbtn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.addressaddbtn:hover {
+  background: #1565c0;
+}
+
+.addressaddbtn:active {
+  transform: scale(0.96);
+}
+
+/* Address list container */
+.addressesContainer {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* Individual address card */
+.addressCard {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.addressCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.addressCard p {
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.addressCard p strong {
+  color: #222;
+}
+
+/* Edit button */
+.addressCard button {
+  align-self: flex-start;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid #1976d2;
+  background: transparent;
+  color: #1976d2;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.addressCard button:hover {
+  background: #1976d2;
+  color: #fff;
+}
+
+/* Empty state */
+.addressscard p {
+  color: #777;
+  font-style: italic;
+}
+
+/* ===== Wishlist ===== */
+.wishlisted-items-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wishlisted-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem;
+  border-radius: 12px;
+  background: #faf5ff;
+  margin-bottom: 0.6rem;
+}
+
+.wishlisted-item-details h3 {
+  font-size: 0.9rem;
+  color: #4c1d95;
+  margin-bottom: 0.2rem;
+}
+
+.wishlisted-item-details p {
+  font-size: 0.85rem;
+  color: #6d28d9;
+}
+
+/* ===== Wishlist Icon ===== */
+.Heart {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #ef4444;
+}
+
+/* ===== Overlay (Edit Modals) ===== */
+.profile-edit-overlay,
+.address-management-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 640px) {
+  .card-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .cards {
+    padding: 1.2rem;
+  }
+
+  .cards h1 {
+    font-size: 1.15rem;
+  }
+}

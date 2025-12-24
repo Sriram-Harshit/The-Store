@@ -1,0 +1,170 @@
+/* ================= PAGE WRAPPER ================= */
+.order-management {
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.order-management h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #4c1d95;
+  margin-bottom: 1.5rem;
+}
+
+/* ================= ORDER LIST ================= */
+.order-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ================= ORDER CARD ================= */
+.order-item {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.order-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* ================= ORDER HEADER ================= */
+.order-item h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4338ca;
+  margin-bottom: 0.3rem;
+}
+
+.order-item p {
+  font-size: 0.9rem;
+  color: #5b21b6;
+  margin: 0.2rem 0;
+}
+
+/* ================= BUTTONS ================= */
+.toggle-items-button,
+.cancel-order-button {
+  margin-top: 0.7rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-items-button {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.toggle-items-button:hover {
+  background: #ddd6fe;
+}
+
+.cancel-order-button {
+  background: #fee2e2;
+  color: #b91c1c;
+  margin-left: 0.6rem;
+}
+
+.cancel-order-button:hover {
+  background: #fecaca;
+}
+
+.cancel-order-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================= STATUS ================= */
+.order-item p:last-child {
+  font-weight: 700;
+  margin-top: 0.6rem;
+}
+
+.order-item p:last-child::before {
+  content: "Status: ";
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ================= ORDER ITEMS ================= */
+.order-items {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* ================= ITEM ROW ================= */
+.order-item-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #faf5ff;
+  border-radius: 12px;
+  padding: 0.6rem;
+}
+
+/* ================= ITEM IMAGE ================= */
+.order-item-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+}
+
+/* ================= ITEM INFO ================= */
+.order-item-info h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #4c1d95;
+}
+
+.order-item-info p {
+  font-size: 0.8rem;
+  color: #6d28d9;
+}
+
+/* ================= EMPTY STATE ================= */
+.order-management > p {
+  text-align: center;
+  font-weight: 600;
+  color: #6b21a8;
+  margin-top: 2rem;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 640px) {
+  .order-management {
+    padding: 1rem;
+  }
+
+  .order-item {
+    padding: 1rem;
+  }
+
+  .order-item-detail {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-item-image {
+    width: 100%;
+    height: 120px;
+  }
+}

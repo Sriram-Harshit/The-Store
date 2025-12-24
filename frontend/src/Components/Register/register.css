@@ -1,0 +1,93 @@
+.BgContainer {
+  min-height: calc(100vh - var(--header-height, 64px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 520px;
+}
+
+.form {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: 2rem 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.conatinername {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #5b21b6;
+  margin-bottom: 1.4rem;
+}
+
+.rowAlign {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.FieldContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #6b21a8;
+  margin-bottom: 0.25rem;
+}
+
+.InputField {
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #ddd6fe;
+  font-size: 0.9rem;
+  background: white;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.InputField:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
+}
+
+.reg-link {
+  display: block;
+  text-align: center;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: #6d28d9;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.reg-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .form {
+    padding: 1.6rem 1.4rem;
+  }
+
+  .rowAlign {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .conatinername {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+}

@@ -1,0 +1,116 @@
+/* ===== Base Button ===== */
+.btn {
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+/* ===== Sizes ===== */
+.btn-sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
+
+.btn-md {
+  padding: 0.75rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+.btn-lg {
+  padding: 1rem 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* ===== Variants ===== */
+
+/* Primary (Add to Cart, Checkout) */
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 12px 25px rgba(124, 58, 237, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Secondary (Continue Shopping) */
+.btn-secondary {
+  background: #f9f8fd;
+  color: #5b21b6;
+}
+
+.btn-secondary:hover {
+  background: #afa2e1;
+}
+
+/* Outline (View Details) */
+.btn-outline {
+  background: transparent;
+  border: 2px solid #7c3aed;
+  color: #7c3aed;
+}
+
+.btn-outline:hover {
+  background: rgba(124, 58, 237, 0.1);
+}
+
+/* Danger (Remove, Delete) */
+.btn-danger {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: white;
+}
+
+.btn-danger:hover {
+  box-shadow: 0 12px 25px rgba(239, 68, 68, 0.35);
+}
+
+/* Text button (Low priority actions) */
+.btn-text {
+  background: transparent;
+  color: #6d28d9;
+  padding: 0.4rem;
+}
+
+.btn-text:hover {
+  text-decoration: underline;
+}
+
+/* ===== Disabled ===== */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===== Icon ===== */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+/* ===== Loading Spinner ===== */
+.btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

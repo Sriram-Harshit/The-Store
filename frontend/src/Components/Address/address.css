@@ -1,0 +1,136 @@
+/* ===== Overlay ===== */
+.address-management-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* ===== Modal Container ===== */
+.address-management-container {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 1.8rem;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.25);
+  animation: scaleFade 0.25s ease-out;
+}
+
+/* ===== Title ===== */
+.address-management-container h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #5b21b6;
+  margin-bottom: 1.3rem;
+}
+
+/* ===== Field Wrapper ===== */
+.FieldContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.85rem;
+}
+
+/* ===== Labels ===== */
+.FieldContainer label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #6d28d9;
+  margin-bottom: 0.25rem;
+}
+
+/* ===== Inputs ===== */
+.InputField {
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #ddd6fe;
+  font-size: 0.9rem;
+  background: #ffffff;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.InputField:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
+}
+
+/* ===== Button Group ===== */
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+/* Save Button */
+.button-group button[type="submit"] {
+  flex: 1;
+  padding: 0.65rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button-group button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(124, 58, 237, 0.35);
+}
+
+.button-group button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Cancel Button */
+.button-group button[type="button"] {
+  flex: 1;
+  padding: 0.65rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #ede9fe;
+  color: #5b21b6;
+  transition: background 0.15s ease;
+}
+
+.button-group button[type="button"]:hover:not(:disabled) {
+  background: #ddd6fe;
+}
+
+/* ===== Entry Animation ===== */
+@keyframes scaleFade {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .address-management-container {
+    padding: 1.5rem 1.3rem;
+  }
+
+  .address-management-container h2 {
+    font-size: 1.35rem;
+  }
+}
