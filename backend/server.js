@@ -50,10 +50,35 @@ app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(requestLogger);
 
-connectToDatabase();
+// Warm up database connection on initial load
+connectToDatabase().catch(() => {});
 
 app.get("/", (req, res) => {
   res.send("Backend running on Vercel 🚀");
+});
+
+// Database connection gatekeeper for Serverless cold-starts
+app.use(async (req, res, next) => {
+  if (req.path === "/") {
+    return next();
+  }
+
+  if (!process.env.MONGO_URI) {
+    return res.status(503).json({
+      error: "DATABASE_NOT_CONFIGURED",
+      message: "MONGO_URI environment variable is not configured on this server.",
+    });
+  }
+
+  try {
+    await connectToDatabase();
+    next();
+  } catch (err) {
+    return res.status(500).json({
+      error: "DATABASE_CONNECTION_ERROR",
+      message: `Failed to connect to database: ${err.message}`,
+    });
+  }
 });
 
 // Standard routes

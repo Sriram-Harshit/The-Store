@@ -8,25 +8,53 @@ try {
   // Ignore if system restricts custom DNS servers
 }
 
+// Global cached connection for serverless execution environments (Vercel, AWS Lambda)
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
 const connectToDatabase = async () => {
+  // If already connected, return active connection immediately
+  if (cached.conn && mongoose.connection.readyState === 1) {
+    return cached.conn;
+  }
+
   const mongoUri = process.env.MONGO_URI;
   if (!mongoUri) {
-    // Disable command buffering so queries don't hang for 10s if DB is not configured
-    mongoose.set("bufferCommands", false);
-    console.warn(
-      "⚠️ MONGO_URI is not set in environment variables. Database connection skipped."
-    );
-    return;
+    console.warn("⚠️ MONGO_URI is not set in environment variables.");
+    return null;
   }
+
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: true, // Keep default command buffering so queries await initial handshake
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 10000,
+    };
+
+    cached.promise = mongoose
+      .connect(mongoUri, opts)
+      .then((mongooseInstance) => {
+        console.log("Connected to MongoDB");
+        return mongooseInstance;
+      })
+      .catch((error) => {
+        cached.promise = null;
+        console.error("Error connecting to MongoDB:", error.message);
+        throw error;
+      });
+  }
+
   try {
-    await mongoose.connect(mongoUri, {
-      serverSelectionTimeoutMS: 3000,
-    });
-    console.log("Connected to MongoDB");
-  } catch (error) {
-    mongoose.set("bufferCommands", false);
-    console.error("Error connecting to MongoDB:", error.message);
+    cached.conn = await cached.promise;
+  } catch (e) {
+    cached.promise = null;
+    throw e;
   }
+
+  return cached.conn;
 };
 
 module.exports = connectToDatabase;
