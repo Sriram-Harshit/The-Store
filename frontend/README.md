@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# 🎨 TheStore — Frontend Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The client for **TheStore** is a high-performance single-page web application engineered with **React 18**, **Vite 7**, and **Redux Toolkit**, featuring strict Role-Based Access Control (RBAC), an interactive AI Shopping Concierge, and an isolated Welcome Showcase Portal (`/welcome`).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Key Features
 
-### `npm start`
+1. **Role-Based Portals & Route Isolation:**
+   - 🛍️ **Customer Storefront (`/user`):** Full retail e-commerce shopping experience with instant search, category filtering, persistent cart, customer reviews, order tracking receipts, and customer profile.
+   - 🏪 **Verified Merchant Hub (`/seller`):** SKU inventory management, new product creation with deep technical specifications, sales telemetry, order fulfillment status dispatch, and KYC compliance dossier.
+   - 🛡️ **Platform Administrator (`/admin`):** Platform-wide metrics, merchant vetting and approval queue, catalog product moderation, and user role governance.
+   - 🌟 **Welcome Portal Showcase (`/welcome`):** Clean, minimal 3-portal gateway with test credentials and direct navigation to `/user`, `/seller`, and `/admin`. Header, Footer, and AI Chatbot are automatically hidden to present an uncluttered interface.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Session Interception & Account Switcher:**
+   - Powered by `ProtectedRoute.jsx`. When an authenticated user of one role attempts to access another role's portal (e.g., a customer navigating to `/seller`), the request is intercepted with a restriction card and one-click session reset buttons.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **In-Depth Technical Specifications Modal:**
+   - Tabbed specifications grid (Display, Audio, Hardware, Connectivity, In The Box, Reviews).
+   - Flipkart/Amazon-style 4-point bullet feature highlights.
+   - Interactive Customer Review submission with live star selector.
+   - Delivery & trust guarantees (Free 2-day delivery, 7-day replacement, brand warranty).
 
-### `npm test`
+4. **AI Shopping Assistant (3-Step Discovery Wizard):**
+   - **Step 1 (Requirement):** Captures what product the shopper needs (Laptops, Smart TVs, Audio, Clothing, Books).
+   - **Step 2 (Price):** Captures budget range or custom price ceiling.
+   - **Step 3 (Primary Use):** Gathers exact use case (e.g. 120Hz Gaming, 4K Cinema Streaming, Coding, Activewear).
+   - **Fulfill Needs:** Evaluates specifications, computes match scores, and provides direct "Specs" and "Add to Cart" action cards. Automatically hidden on `/welcome`, `/admin`, and `/seller`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Tech Stack & Dependencies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Framework:** React 18 (Functional components, hooks)
+- **Build Tool:** Vite 7 (Lightning-fast HMR and optimized production bundling)
+- **State Management:** Redux Toolkit (`authSlice`, `productsSlice`, `cartSlice`, `ordersSlice`, `searchSlice`)
+- **Routing:** React Router DOM v6 with role-guarded routes (`ProtectedRoute`, `AuthRoute`)
+- **HTTP Client:** Axios with centralized base URL and Bearer token handling
+- **Styling:** Vanilla CSS with custom design system tokens, responsive glassmorphism, Bootstrap Icons
+- **Deployment:** Vercel SPA rewrite ready (`vercel.json`)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Directory Structure
 
-### `npm run eject`
+```text
+frontend/
+├── public/                       # Static public assets (SVG icons, favicons)
+├── src/
+│   ├── Components/
+│   │   ├── admin/                # Admin Console & supervisor portal
+│   │   │   ├── AdminPortal.jsx   # Tabbed control room (Metrics, Sellers, Products, Users)
+│   │   │   ├── AdminLogin.jsx    # Dedicated Administrator login
+│   │   │   ├── AdminNavbar.jsx   # Dedicated Administrator navbar
+│   │   │   └── AdminDesktopOnlyGuard.jsx # Guard for desktop viewports
+│   │   ├── seller/               # Merchant Workstation
+│   │   │   ├── SellerPortal.jsx  # Inventory, Orders, KYC Documents, Analytics
+│   │   │   └── SellerLogin.jsx   # Dedicated Merchant login
+│   │   ├── customer/             # Consumer Storefront & Workflows
+│   │   │   ├── Home/             # Product catalog grid, category bar, deals
+│   │   │   ├── Cart/             # Stock-aware cart calculation & checkout
+│   │   │   ├── OrderManagement/  # Order history receipts & status timeline
+│   │   │   ├── UserProfile/      # Account settings & address management
+│   │   │   ├── Login/            # Customer authentication
+│   │   │   └── Register/         # Customer registration
+│   │   └── common/               # Shared Application Components
+│   │       ├── Welcome/          # Standalone 3-portal showcase (/welcome)
+│   │       ├── Header/           # Adaptive role navbar
+│   │       ├── Footer/           # Enterprise marketplace footer
+│   │       ├── Chatbot/          # 3-Step AI Discovery Concierge
+│   │       ├── ProductDetails/   # Deep technical specs modal & reviews
+│   │       └── NotFound/         # 404 handler
+│   ├── config/                   # Centralized API URL resolver (config.jsx)
+│   ├── routes/
+│   │   ├── ProtectedRoute.jsx    # RBAC route interceptor & restriction modal
+│   │   └── AuthRoute.jsx         # Guest-only route guard
+│   ├── store/                    # Redux store configuration & domain slices
+│   ├── utils/                    # Product images, API logger, notification toasts
+│   ├── App.jsx                   # Master route configuration
+│   ├── index.css                 # Global CSS design tokens
+│   └── main.jsx                  # React DOM entry point
+├── vercel.json                   # Vercel SPA client rewrite configuration
+├── package.json
+└── vite.config.js
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚙️ Environment Configuration
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Frontend environment variables can be set in `frontend/.env` or inside your Vercel Project Settings:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```env
+# Point to your running backend API server
+# Local development:
+VITE_API_URL=http://localhost:5000/api
 
-## Learn More
+# Production:
+# VITE_API_URL=https://your-backend-api.vercel.app/api
+VITE_ENV=development
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*(Refer to [`env-template.txt`](file:///c:/Users/srira/Downloads/The-Store/env-template.txt) in the project root for full options)*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🚀 Vercel Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The `frontend/vercel.json` file handles Single Page Application (SPA) routing:
 
-### Analyzing the Bundle Size
+```json
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This prevents `404 Not Found` errors when users directly load or reload routes like `/welcome`, `/user`, `/seller`, or `/admin`.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 💻 Available Scripts
 
-### Advanced Configuration
+In the `frontend/` directory, you can run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+# Start local development server on http://localhost:3000
+npm run dev
 
-### Deployment
+# Compile optimized production bundle to /dist
+npm run build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Preview production build locally
+npm run preview
+```

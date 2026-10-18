@@ -1,0 +1,205 @@
+/* =========================================================
+   ADMIN DESKTOP & LAPTOP ONLY ACCESS GUARD
+   ========================================================= */
+.admin-laptop-guard-screen {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  background: radial-gradient(circle at 50% 30%, #1e1b4b 0%, #0f172a 100%);
+  color: #f8fafc;
+  box-sizing: border-box;
+}
+
+.admin-laptop-guard-card {
+  max-width: 580px;
+  width: 100%;
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 24px;
+  padding: 2.4rem 2rem;
+  text-align: center;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 30px rgba(124, 58, 237, 0.15);
+  animation: guardFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+@keyframes guardFadeIn {
+  from {
+    transform: translateY(12px) scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Guard Icon */
+.guard-icon-container {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guard-icon-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(244, 63, 94, 0.5);
+  animation: guardSpin 12s linear infinite;
+}
+
+@keyframes guardSpin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.guard-icon {
+  font-size: 3.2rem;
+  color: #f43f5e;
+  filter: drop-shadow(0 0 12px rgba(244, 63, 94, 0.5));
+}
+
+.guard-lock-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  background: #f43f5e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #ffffff;
+  border: 2px solid #0f172a;
+}
+
+/* Tag */
+.guard-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  color: #fb7185;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.1rem;
+}
+
+.admin-laptop-guard-card h1 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+}
+
+.guard-subtitle {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0 auto 1.6rem;
+  max-width: 480px;
+}
+
+/* Diagnostic Box */
+.guard-diagnostic-box {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  text-align: left;
+}
+
+.diag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.86rem;
+}
+
+.diag-label {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.diag-value {
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.diag-error {
+  color: #fb7185;
+}
+
+.diag-req {
+  color: #38bdf8;
+}
+
+.diag-badge {
+  color: #f59e0b;
+  font-size: 0.8rem;
+}
+
+.guard-instruction {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+}
+
+.guard-instruction strong {
+  color: #ffffff;
+}
+
+/* Actions */
+.guard-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.guard-recheck-btn {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  color: #cbd5e1;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.guard-recheck-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+}

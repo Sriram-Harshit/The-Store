@@ -1,0 +1,464 @@
+/* =========================================================================
+   THESTORE ENTERPRISE FOOTER DESIGN SYSTEM
+   ========================================================================= */
+
+.site-footer {
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, #0f172a 18%, #090d16 100%);
+  color: #94a3b8;
+  font-family: inherit;
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.08);
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+/* =========================================================================
+   1. HIGHLIGHTS STRIP (Free shipping, Authentic, Returns, SSL)
+   ========================================================================= */
+.footer-highlights-strip {
+  background: #ffffff;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 2.2rem 0;
+}
+
+.footer-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md, 14px);
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  transition: all 0.25s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-2px);
+  background: #f5f3ff;
+  border-color: rgba(196, 181, 253, 0.8);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.08);
+}
+
+.highlight-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+  color: var(--primary, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.highlight-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.highlight-text strong {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.2rem;
+}
+
+.highlight-text span {
+  font-size: 0.76rem;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+/* =========================================================================
+   2. MAIN FOOTER CONTENT
+   ========================================================================= */
+.footer-main-section {
+  padding: 4.5rem 0 3.5rem;
+}
+
+.footer-columns-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 3rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Col 1: Brand Column */
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+}
+
+.footer-logo .logo-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary, #7c3aed), #6366f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+}
+
+.footer-logo .logo-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.footer-tagline {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin-bottom: 1.75rem;
+  max-width: 340px;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background: var(--primary, #7c3aed);
+  border-color: var(--primary, #7c3aed);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.35);
+}
+
+/* Col Titles & Nav Lists */
+.footer-col-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.35rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-col-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 24px;
+  height: 2px;
+  background: var(--primary, #7c3aed);
+  border-radius: 2px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-list li a,
+.footer-assistant-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 500;
+  transition: all 0.18s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.footer-nav-list li a i,
+.footer-assistant-link i {
+  font-size: 0.85rem;
+  color: #64748b;
+  transition: color 0.18s ease;
+}
+
+.footer-nav-list li a:hover,
+.footer-assistant-link:hover {
+  color: #f1f5f9;
+  transform: translateX(3px);
+}
+
+.footer-nav-list li a:hover i,
+.footer-assistant-link:hover i {
+  color: var(--primary-light, #a78bfa);
+}
+
+/* Newsletter Column */
+.newsletter-desc {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #94a3b8;
+  margin-bottom: 1.25rem;
+}
+
+.footer-newsletter-form {
+  margin-bottom: 0.85rem;
+}
+
+.newsletter-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.newsletter-input-wrap i {
+  position: absolute;
+  left: 1rem;
+  color: #64748b;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.newsletter-input-wrap input {
+  width: 100%;
+  padding: 0.75rem 3rem 0.75rem 2.6rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.86rem;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.newsletter-input-wrap input:focus {
+  border-color: var(--primary, #7c3aed);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+}
+
+.newsletter-submit-btn {
+  position: absolute;
+  right: 6px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--primary, #7c3aed);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: all 0.18s ease;
+}
+
+.newsletter-submit-btn:hover {
+  background: var(--primary-hover, #6d28d9);
+  transform: translateX(2px);
+}
+
+.newsletter-success-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: #34d399;
+  margin-top: 0.4rem;
+}
+
+.store-app-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 1.5rem;
+}
+
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: fit-content;
+}
+
+.meta-badge i {
+  color: #38bdf8;
+}
+
+/* =========================================================================
+   3. BOTTOM LEGAL & PAYMENTS STRIP
+   ========================================================================= */
+.footer-bottom-strip {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.75rem 0 2rem;
+  background: #060911;
+}
+
+.bottom-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.copyright-text {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  flex-wrap: wrap;
+}
+
+.legal-links {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.legal-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.legal-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.legal-links .sep {
+  color: #475569;
+  font-size: 0.7rem;
+}
+
+/* Payment Icons Row */
+.payment-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.payment-label {
+  font-size: 0.76rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.payment-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pay-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: 0.02em;
+}
+
+.pay-chip i {
+  font-size: 0.88rem;
+  color: #a78bfa;
+}
+
+/* =========================================================================
+   RESPONSIVE MOBILE BREAKPOINTS
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .footer-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-columns-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .footer-columns-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-main-section {
+    padding: 3rem 0 2rem;
+  }
+
+  .bottom-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .payment-icons {
+    flex-wrap: wrap;
+  }
+}

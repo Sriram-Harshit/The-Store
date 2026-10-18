@@ -13,7 +13,8 @@ export const fetchCart = createAsyncThunk(
       const res = await axios.get(`${config.apiUrl}/cart/getcart/user`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      return res.data.items;
+      const items = res.data.items || [];
+      return items.filter((item) => item && item.productId);
     } catch {
       return rejectWithValue("Failed to load cart");
     }
@@ -33,7 +34,8 @@ export const addToCart = createAsyncThunk(
         { productId, quantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      return res.data.items; // ✅ updated cart
+      const items = res.data.items || [];
+      return items.filter((item) => item && item.productId);
     } catch {
       return rejectWithValue("Failed to add to cart");
     }
@@ -53,7 +55,8 @@ export const updateCartItem = createAsyncThunk(
         { productId, quantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      return res.data.items; // ✅ updated cart
+      const items = res.data.items || [];
+      return items.filter((item) => item && item.productId);
     } catch {
       return rejectWithValue("Failed to update quantity");
     }
@@ -72,7 +75,8 @@ export const removeFromCart = createAsyncThunk(
         data: { productId },
         headers: { Authorization: `Bearer ${token}` },
       });
-      return res.data.items; // ✅ updated cart
+      const items = res.data.items || [];
+      return items.filter((item) => item && item.productId);
     } catch {
       return rejectWithValue("Failed to remove item");
     }
@@ -82,19 +86,33 @@ export const removeFromCart = createAsyncThunk(
 /* ================= PLACE ORDER ================= */
 export const placeOrder = createAsyncThunk(
   "cart/placeOrder",
-  async (_, { getState, rejectWithValue }) => {
+  async (orderPayload = {}, { getState, rejectWithValue }) => {
     const { cart, auth } = getState();
     if (!auth.token) return rejectWithValue("Please login");
 
-    const totalPrice = cart.items.reduce(
-      (sum, i) => sum + i.productId.price * i.quantity,
+    const validItems = cart.items.filter((i) => i && i.productId);
+    const subtotal = validItems.reduce(
+      (sum, i) => sum + (i.productId.price || 0) * i.quantity,
       0
     );
+
+    const discount = Number(orderPayload?.discountAmount) || 0;
+    const computedTotal = Math.max(0, subtotal - discount);
+    const finalPrice =
+      orderPayload?.totalPrice !== undefined
+        ? Number(orderPayload.totalPrice)
+        : computedTotal;
 
     try {
       await axios.post(
         `${config.apiUrl}/orders/placeOrder`,
-        { cartItems: cart.items, totalPrice },
+        {
+          cartItems: validItems,
+          totalPrice: finalPrice,
+          paymentMethod: orderPayload?.paymentMethod || "Credit/Debit Card",
+          couponApplied: orderPayload?.couponApplied || null,
+          discountAmount: discount,
+        },
         { headers: { Authorization: `Bearer ${auth.token}` } }
       );
 
@@ -190,10 +208,21 @@ const cartSlice = createSlice({
       })
 
       /* PLACE ORDER */
+      .addCase(placeOrder.pending, (s) => {
+        s.loading = true;
+        s.error = null;
+      })
       .addCase(placeOrder.fulfilled, (s) => {
+        s.loading = false;
         s.items = [];
-        s.message = "Order placed successfully";
+        s.message = "Order placed successfully! Track your order anytime in Orders.";
         s.messageType = "success";
+      })
+      .addCase(placeOrder.rejected, (s, a) => {
+        s.loading = false;
+        s.error = a.payload;
+        s.message = a.payload || "Failed to place order. Please try again.";
+        s.messageType = "error";
       });
   },
 });

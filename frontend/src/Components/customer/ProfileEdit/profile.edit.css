@@ -1,0 +1,197 @@
+/* ===== Profile Edit Modal Card ===== */
+.profile-edit-modal-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl, 24px);
+  border: 1px solid var(--border-light, #ede9fe);
+  padding: 2rem;
+  box-shadow: 0 28px 70px rgba(91, 33, 182, 0.22), 0 4px 16px rgba(0, 0, 0, 0.04);
+  animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ===== Header ===== */
+.profile-edit-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--border-light, #ede9fe);
+}
+
+.profile-edit-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.profile-edit-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--primary-subtle, #ede9fe);
+  color: var(--primary, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.profile-edit-title-group h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--primary-darkest, #4c1d95);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.profile-edit-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted, #64748b);
+  margin: 0.2rem 0 0;
+}
+
+.profile-modal-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.profile-modal-close-btn:hover {
+  background: var(--primary-subtle, #ede9fe);
+  color: var(--primary-dark, #5b21b6);
+}
+
+/* ===== Form Grid ===== */
+.profile-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.profile-form-grid .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.profile-form-grid .form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.profile-form-grid .form-field label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--primary-dark, #5b21b6);
+}
+
+.profile-form-grid .input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-form-grid .input-with-icon i {
+  position: absolute;
+  left: 0.85rem;
+  color: var(--primary-light, #8b5cf6);
+  font-size: 0.95rem;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.profile-form-grid .input-with-icon input,
+.profile-form-grid .input-with-icon select.edit-select-field {
+  width: 100%;
+  padding: 0.68rem 0.85rem 0.68rem 2.4rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-light, #ede9fe);
+  font-size: 0.88rem;
+  font-weight: 500;
+  background: #ffffff;
+  color: var(--text-main, #1e1b4b);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.profile-form-grid .input-with-icon input.edit-readonly-input {
+  background: #f8fafc;
+  color: #475569;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+  font-weight: 600;
+}
+
+.profile-form-grid .input-with-icon input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.profile-form-grid .input-with-icon input:focus {
+  border-color: var(--primary, #7c3aed);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.profile-form-grid .input-with-icon input:focus + i {
+  color: var(--primary, #7c3aed);
+}
+
+/* ===== Form Actions ===== */
+.profile-edit-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light, #ede9fe);
+}
+
+.profile-edit-actions .btn {
+  min-width: 120px;
+}
+
+/* ===== Responsive Mobile ===== */
+@media (max-width: 540px) {
+  .profile-edit-modal-card {
+    padding: 1.4rem 1.1rem;
+    border-radius: 18px;
+  }
+
+  .profile-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .profile-edit-actions {
+    flex-direction: column-reverse;
+  }
+
+  .profile-edit-actions .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,56 @@
+# ==============================================================================
+# TheStore - Environment Variables Template
+# ==============================================================================
+# This template lists all required and optional environment variables
+# for running and deploying both the Backend API and Frontend Client.
+#
+# INSTRUCTIONS:
+# 1. For Local Development:
+#    - Create 'backend/.env' and paste the Backend variables below.
+#    - Create 'frontend/.env' (or use default fallback) with the Frontend variables.
+#
+# 2. For Vercel / Cloud Deployment:
+#    - Add these key-value pairs into the "Environment Variables" section
+#      of your project settings in the Vercel dashboard.
+# ==============================================================================
+
+# ==============================================================================
+# 1. BACKEND API ENVIRONMENT VARIABLES (backend/.env)
+# ==============================================================================
+
+# Server Port (Default: 5000)
+PORT=5000
+
+# Environment Mode: 'development' | 'production'
+NODE_ENV=production
+
+# MongoDB Atlas Database Connection URI
+# Replace with your actual MongoDB connection string:
+MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/TheStore?retryWrites=true&w=majority
+
+# Secret key used for signing JWT Authentication Tokens & express sessions
+SESSION_SECRET=your_jwt_strong_secret_key_change_in_production
+
+# JWT Expiration Period (e.g., 30d, 7d, 24h)
+JWT_EXPIRES_IN=30d
+
+# Allowed Frontend Origins for CORS in Production (comma-separated or single domain)
+CORS_ORIGIN=https://thestore.vercel.app
+
+# Optional Redis Cache URL (if using Redis for distributed caching)
+# REDIS_URL=redis://localhost:6379
+
+
+# ==============================================================================
+# 2. FRONTEND CLIENT ENVIRONMENT VARIABLES (frontend/.env)
+# ==============================================================================
+
+# Base URL pointing to the deployed backend Express API.
+# Note: In Vite, all environment variables accessible in the browser must begin with 'VITE_'
+# Local development:
+# VITE_API_URL=http://localhost:5000/api
+# Production deployment:
+VITE_API_URL=https://the-store-backend-rosy.vercel.app/api
+
+# Client Environment identifier: 'development' | 'production'
+VITE_ENV=production

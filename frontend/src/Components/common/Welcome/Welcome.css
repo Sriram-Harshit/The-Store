@@ -1,0 +1,290 @@
+/* ===== Clean Standalone Welcome Page ===== */
+.welcome-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.5rem;
+  background: linear-gradient(180deg, #faf5ff 0%, #f8fafc 40%, #ffffff 100%);
+  color: #1e1b4b;
+  box-sizing: border-box;
+}
+
+.welcome-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.welcome-header {
+  margin-bottom: 3rem;
+}
+
+.welcome-logo {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.28);
+}
+
+.welcome-header h1 {
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-weight: 900;
+  color: #1e1b4b;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.welcome-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== 3 Cards Grid ===== */
+.welcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .welcome-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+
+.welcome-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 22px;
+  padding: 2.25rem 1.85rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 42px rgba(91, 33, 182, 0.1);
+}
+
+.welcome-card.customer:hover {
+  border-color: #a78bfa;
+}
+
+.welcome-card.seller:hover {
+  border-color: #6ee7b7;
+}
+
+.welcome-card.admin:hover {
+  border-color: #fca5a5;
+}
+
+.card-top-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.customer .card-top-tag {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.seller .card-top-tag {
+  background: #dcfce7;
+  color: #047857;
+}
+
+.admin .card-top-tag {
+  background: #ffe4e6;
+  color: #e11d48;
+}
+
+.card-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.customer .card-icon {
+  background: #ede9fe;
+  color: #7c3aed;
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.18);
+}
+
+.seller .card-icon {
+  background: #dcfce7;
+  color: #059669;
+  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.18);
+}
+
+.admin .card-icon {
+  background: #ffe4e6;
+  color: #e11d48;
+  box-shadow: 0 6px 16px rgba(225, 29, 72, 0.18);
+}
+
+.welcome-card h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.card-tagline {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 1.25rem;
+  min-height: 48px;
+}
+
+/* Feature bullets */
+.card-features-list {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.customer .feature-item i {
+  color: #7c3aed;
+  font-size: 0.9rem;
+  margin-top: 1px;
+}
+
+.seller .feature-item i {
+  color: #059669;
+  font-size: 0.9rem;
+  margin-top: 1px;
+}
+
+.admin .feature-item i {
+  color: #e11d48;
+  font-size: 0.9rem;
+  margin-top: 1px;
+}
+
+/* Credentials Box */
+.card-creds-box {
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border: 1px solid #e2e8f0;
+}
+
+.creds-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.06em;
+}
+
+.card-creds-box code {
+  font-size: 0.82rem;
+  color: #1e1b4b;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+/* Action Button */
+.welcome-btn-wrap {
+  margin-top: auto;
+}
+
+.welcome-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.customer .welcome-btn {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.customer:hover .welcome-btn {
+  background: #7c3aed;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+}
+
+.seller .welcome-btn {
+  background: #dcfce7;
+  color: #047857;
+}
+
+.seller:hover .welcome-btn {
+  background: #059669;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.3);
+}
+
+.admin .welcome-btn {
+  background: #ffe4e6;
+  color: #e11d48;
+}
+
+.admin:hover .welcome-btn {
+  background: #e11d48;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.3);
+}

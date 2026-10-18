@@ -100,8 +100,8 @@ const ordersSlice = createSlice({
       })
       .addCase(cancelOrder.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = state.items.filter(
-          (order) => order._id !== action.payload
+        state.items = state.items.map((order) =>
+          order._id === action.payload ? { ...order, status: "Cancelled" } : order
         );
         state.message = "Order canceled successfully";
         state.messageType = "success";
